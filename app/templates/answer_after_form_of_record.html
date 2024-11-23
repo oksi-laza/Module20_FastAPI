@@ -10,7 +10,7 @@
         <section class="feedback d-flex-center">
             <form class="d-flex-center form" action="">
                 <h3 class="center ">{{ first_name }}, Вы записаны на встречу
-                    <br>{{ date_of_meeting }} в {{ meeting_time }}!
+                    <br>{{ date_of_meeting }} в {{ meeting_time.strftime('%H:%M') }}!
                     <br>Наш офис находится по адреcу: <br>г.Москва, ул.Мосфильмовская, д. 70.
                     <br>Мы свяжемся с вами для подтверждения времени встречи.
                 </h3>

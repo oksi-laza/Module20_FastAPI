@@ -8,20 +8,18 @@
 <body>
     <section class="modal d-flex-center">
         <section class="feedback d-flex-center">
-            <form method="post" class="d-flex-center form" action="">
+            <form method="post" class="d-flex-center form" action="update_previous_appointment">
                 <h3 class="center ">{{ first_name }}, Вы уже записаны на встречу
-                    <br>{{ previous_date_of_meeting }} в {{ previous_meeting_time|time:"H:i" }}!
+                    <br>{{ previous_date_of_meeting }} в {{ previous_meeting_time.strftime('%H:%M') }}!
                     <br>Хотите оставить прежнюю запись или Вас записать на новое время?
                 </h3>
-                <button type="submit" class="btn bold btn-feedback" name="previous_entry">
+                <button class="btn bold btn-feedback" name="previous_entry">
                     <a href="/form_of_record/no_changes_previous_appointment" class="btn-href">
                         Оставить прежнюю запись
                     </a>
                 </button>
                 <button type="submit" class="btn bold btn-feedback" name="new_entry">
-                    <a href="/form_of_record/update_previous_appointment" class="btn-href">
-                        Записать на {{ date_of_meeting }} в {{ meeting_time }}
-                    </a>
+                        Записать на {{ date_of_meeting }} в {{ meeting_time.strftime('%H:%M') }}
                 </button>
             </form>
         </section>

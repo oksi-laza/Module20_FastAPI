@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from typing import Annotated
+from starlette.middleware.sessions import SessionMiddleware
 from backend.db_depends import get_db
 from sqlalchemy import select
 from models import ServicesOffered, InfoGlavnoe
@@ -11,6 +12,8 @@ from routers import page_navigation, form_of_record_routers
 
 app = FastAPI()
 # python -m uvicorn main:app - команда для запуска в терминале
+
+app.add_middleware(SessionMiddleware, secret_key="SECRET_KEY")
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/images", StaticFiles(directory="images"), name="images")
